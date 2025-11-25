@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendamento - Petshop Aurora</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- CSS Personalizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Petshop Aurora</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="produtos.html">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="servicos.html">Serviços</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="agendamento.html">Agendamento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contato.html">Contato</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <header class="container-fluid text-center py-3">
+    <p class="lead">Amor e cuidado para o seu pet • Atendimento de segunda a sábado</p>
+  </header>
+
+  <main class="container my-5">
+    <h2 class="mb-4">Agendamento de Serviços</h2>
+    <p id="data-hora-atual" class="text-muted"></p>
+
+    <form id="formAgendamento" class="row g-3 needs-validation" novalidate>
+      
+      <!-- Seção 1: Dados do Cliente -->
+      <section class="col-md-6">
+        <h3 class="h4 mb-3">1. Dados do Cliente</h3>
+        
+        <div class="form-group">
+          <label for="nomeCliente" class="form-label">Nome Completo <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomeCliente" name="nomeCliente" placeholder="Seu nome completo" required>
+          <div class="invalid-feedback">
+            Por favor, informe seu nome.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cpf" class="form-label">CPF <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Ex: 000.000.000-00" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+          <div class="invalid-feedback">
+            Por favor, informe um CPF válido (formato: 000.000.000-00).
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">E-mail <span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+          <div class="invalid-feedback">
+            Por favor, informe um e-mail válido.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="telefone" class="form-label">Telefone <span class="text-danger">*</span></label>
+          <input type="tel" class="form-control" id="telefone" name="telefone" placeholder="Ex: (51) 99999-0000" required>
+          <div class="invalid-feedback">
+            Por favor, informe seu telefone.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Sexo</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sexo" id="sexoM" value="masculino" required>
+            <label class="form-check-label" for="sexoM">Masculino</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="sexo" id="sexoF" value="feminino">
+            <label class="form-check-label" for="sexoF">Feminino</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="endereco" class="form-label">Endereço (para Tele-busca)</label>
+          <textarea class="form-control" id="endereco" name="endereco" rows="2" placeholder="Rua, número, bairro"></textarea>
+        </div>
+      </section>
+
+      <!-- Seção 2: Dados do Pet e Agendamento -->
+      <section class="col-md-6">
+        <h3 class="h4 mb-3">2. Dados do Pet</h3>
+
+        <div class="form-group">
+          <label for="nomePet" class="form-label">Nome do Pet <span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomePet" name="nomePet" placeholder="Nome do seu pet" required>
+          <div class="invalid-feedback">
+            Por favor, informe o nome do pet.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="raca" class="form-label">Raça</label>
+          <input type="text" class="form-control" id="raca" name="raca" placeholder="Ex: Poodle, Siamês">
+        </div>
+
+        <div class="form-group">
+          <label for="idade" class="form-label">Idade do Pet (anos) <span class="text-danger">*</span></label>
+          <input type="number" class="form-control" id="idade" name="idade" min="0" max="30" placeholder="Idade em anos" required>
+          <div class="invalid-feedback">
+            Por favor, informe a idade do pet.
+          </div>
+        </div>
+
+        <h3 class="h4 mt-4 mb-3">3. Serviço e Agendamento</h3>
+
+        <div class="form-group">
+          <label for="servico" class="form-label">Serviço Desejado <span class="text-danger">*</span></label>
+          <select class="form-select" id="servico" name="servico" required>
+            <option value="" disabled selected>Selecione o serviço</option>
+            <option value="banho">Banho</option>
+            <option value="tosa">Tosa</option>
+            <option value="banho_tosa">Banho & Tosa Completo</option>
+          </select>
+          <div class="invalid-feedback">
+            Por favor, selecione um serviço.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Método de Agendamento <span class="text-danger">*</span></label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="metodoAgendamento" id="teleBusca" value="tele-busca" required>
+            <label class="form-check-label" for="teleBusca">Tele-busca (Retiramos e entregamos o pet)</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="metodoAgendamento" id="entregaLocal" value="entrega-local">
+            <label class="form-check-label" for="entregaLocal">Entrega do Pet no Local</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dataAgendamento" class="form-label">Data do Agendamento <span class="text-danger">*</span></label>
+          <input type="date" class="form-control" id="dataAgendamento" name="dataAgendamento" required>
+          <div class="invalid-feedback">
+            Por favor, informe a data.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="horaAgendamento" class="form-label">Horário do Agendamento <span class="text-danger">*</span></label>
+          <input type="time" class="form-control" id="horaAgendamento" name="horaAgendamento" min="09:00" max="18:00" required>
+          <div class="invalid-feedback">
+            Por favor, informe o horário (entre 09:00 e 18:00).
+          </div>
+        </div>
+
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="termos" required>
+          <label class="form-check-label" for="termos">Concordo com os <a href="#">Termos de Serviço</a> <span class="text-danger">*</span></label>
+          <div class="invalid-feedback">
+            Você deve concordar com os termos.
+          </div>
+        </div>
+
+      </section>
+
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Confirmar Agendamento</button>
+      </div>
+    </form>
+  </main>
+
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <p class="mb-1">© 2025 Petshop Aurora — Projeto acadêmico (Fase 2 – Front-end com Bootstrap).</p>
+      <p class="mb-1">Autoria: José Kirschke</p>
+      <nav class="nav justify-content-center">
+        <a class="nav-link" href="index.html">Início</a>
+        <a class="nav-link" href="produtos.html">Produtos</a>
+        <a class="nav-link" href="servicos.html">Serviços</a>
+        <a class="nav-link" href="agendamento.html">Agendamento</a>
+        <a class="nav-link" href="contato.html">Contato</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <!-- JavaScript Personalizado -->
+  <script src="script.js"></script>
+</body>
+</html>

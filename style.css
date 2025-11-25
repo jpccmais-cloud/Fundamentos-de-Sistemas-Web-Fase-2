@@ -1,0 +1,60 @@
+/* Estilos personalizados para o Petshop Aurora */
+
+body {
+    padding-top: 56px; /* Espaço para o navbar fixo */
+}
+
+header {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.footer {
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    text-align: center;
+}
+
+.footer a {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #0056b3;
+}
+
+/* Estilo para o conteúdo da Fase 1 (semântica) */
+main {
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+article {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 3px;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Estilos para o formulário de agendamento */
+.form-group {
+    margin-bottom: 15px;
+}
